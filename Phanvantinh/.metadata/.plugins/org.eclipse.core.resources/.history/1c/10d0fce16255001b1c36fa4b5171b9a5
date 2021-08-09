@@ -1,0 +1,126 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.FlowLayout;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class dangnhap extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					dangnhap frame = new dangnhap();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public dangnhap() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		setLocation(200,200);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("TH\u00D4NG TIN H\u1ECCC SINH");
+		lblNewLabel.setForeground(new Color(255, 69, 0));
+		lblNewLabel.setBackground(new Color(240, 230, 140));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 17));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(62, 1, 314, 38);
+		lblNewLabel.setOpaque(true);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setBounds(13, 80, 85, 85);
+		contentPane.add(lblNewLabel_1);
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Truon\\OneDrive\\Hi\u0300nh a\u0309nh\\hs1.png"));
+		
+		JLabel lblNewLabel_2 = new JLabel("H\u1ECD v\u00E0 t\u00EAn");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_2.setBounds(122, 71, 76, 25);
+		contentPane.add(lblNewLabel_2);
+		
+		textField = new JTextField();
+		textField.setBounds(216, 74, 208, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_3 = new JLabel("L\u1EDBp");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_3.setBounds(122, 118, 76, 21);
+		contentPane.add(lblNewLabel_3);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(216, 119, 208, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblNewLabel_4 = new JLabel("S\u1ED1 B\u00E1o Danh");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_4.setBounds(122, 164, 76, 25);
+		contentPane.add(lblNewLabel_4);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(216, 166, 208, 20);
+		contentPane.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Ch\u1ECDn T\u1ED5 H\u1EE3p");
+		btnNewButton.setFont(new Font("Tahoma", Font.ITALIC, 13));
+		btnNewButton.setBounds(11, 211, 125, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Tra C\u1EE9u \u0110i\u1EC3m");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnNewButton_1.setBounds(160, 211, 120, 23);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("L\u1ECBch Thi");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.ITALIC, 13));
+		btnNewButton_2.setBounds(305, 210, 120, 23);
+		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new asdf();
+			}
+		});
+		btnNewButton_3.setBounds(4, 3, 25, 25);
+		btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\Truon\\OneDrive\\Hi\u0300nh a\u0309nh\\01.png"));
+		contentPane.add(btnNewButton_3);
+		setVisible(true);
+	}
+
+}

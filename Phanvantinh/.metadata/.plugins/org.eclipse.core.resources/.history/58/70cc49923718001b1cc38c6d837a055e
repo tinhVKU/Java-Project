@@ -1,0 +1,15 @@
+
+public class soletu1den100 {
+	public int tong (int a,int b) {
+		int sum=0;
+		for(;a<=b;a++) {
+			if(a%2==0) {
+				sum+=a;
+			}
+		}
+	}
+public static void main (String[]args) {
+	soletu1den100  abc =new soletu1den100();
+	System.out.print("Tong cac so le tu 1 den 100 la: "+abc.tong(1, 100));
+}
+}

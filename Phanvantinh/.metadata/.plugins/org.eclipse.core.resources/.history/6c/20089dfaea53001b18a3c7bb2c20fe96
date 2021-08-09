@@ -1,0 +1,104 @@
+import java.awt.BorderLayout;
+import java.awt.CheckboxGroup;
+import java.awt.EventQueue;
+
+import javax.sql.RowSetListener;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JCheckBox;
+
+public class dangki extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private CheckboxGroup cxgr;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					dangki frame = new dangki();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public dangki() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		setSize(300,300);
+		setLocation(570, 100);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("H\u1ECD v\u00E0 t\u00EAn");
+		lblNewLabel.setBounds(4, 11, 65, 22);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("L\u1EDBp");
+		lblNewLabel_1.setBounds(5, 45, 59, 17);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Ng\u00E0y sinh");
+		lblNewLabel_2.setBounds(5, 73, 63, 22);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Tr\u01B0\u1EDDng");
+		lblNewLabel_3.setBounds(6, 106, 58, 24);
+		contentPane.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("T\u1EC9nh (Th\u00E0nh ph\u1ED1)");
+		lblNewLabel_4.setBounds(4, 140, 105, 22);
+		contentPane.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_5 = new JLabel("S\u0110T");
+		lblNewLabel_5.setBounds(4, 173, 65, 22);
+		contentPane.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("Email");
+		lblNewLabel_6.setBounds(6, 205, 59, 22);
+		contentPane.add(lblNewLabel_6);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(97, 229, 107, 29);
+		contentPane.add(btnNewButton);
+		
+		textField = new JTextField();
+		textField.setBounds(99, 8, 180, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(38, 40, 62, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblNewLabel_7 = new JLabel("Gi\u1EDBi T\u00EDnh");
+		lblNewLabel_7.setBounds(113, 41, 63, 20);
+		contentPane.add(lblNewLabel_7);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Nam");
+		chckbxNewCheckBox.setBounds(169, 40, 52, 23);
+		contentPane.add(chckbxNewCheckBox);
+		
+		//cxgr.
+		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("N\u1EEF");
+		chckbxNewCheckBox_1.setBounds(220, 39, 58, 23);
+		contentPane.add(chckbxNewCheckBox_1);
+	}
+}

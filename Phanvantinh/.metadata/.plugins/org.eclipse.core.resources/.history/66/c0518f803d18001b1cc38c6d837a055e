@@ -1,0 +1,36 @@
+
+public class soletu1den100 {
+	public int tong1 (int a,int b) {
+		int sum=0;
+		for(;a<=b;a++) {
+			if(a%2!=0) {
+				sum+=a;
+			}}
+		return sum;
+		}
+	public int tong2 (int a,int b) {
+		int c=0;
+		do{
+			if(a%2!=0) 
+			c+=a;
+		a++;
+		}
+		while(a<=b);
+		return c;}
+	public int tong3 (int a,int b) {
+		int d=0;
+		while(a<=b) {
+			if(a%2!=0) {
+				d+=a;
+			}
+			a++;
+	}
+		return d;
+	}
+public static void main (String[]args) {
+	soletu1den100  abc =new soletu1den100();
+	System.out.print("Tong cac so le tu 1 den 100 la: "+abc.tong1(1, 100));
+	System.out.print("Tong cac so le tu 1 den 100 la: "+abc.tong2(1, 100));
+	System.out.print("Tong cac so le tu 1 den 100 la: "+abc.tong3(1, 100));
+}
+}

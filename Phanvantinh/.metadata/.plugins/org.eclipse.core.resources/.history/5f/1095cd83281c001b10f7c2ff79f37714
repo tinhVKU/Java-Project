@@ -1,0 +1,21 @@
+
+public class tongsole1 {
+	public int tong1(int a,int b) {
+		int sum=0;
+		for(;a<=b;a++) {
+		if(a%2!=0) {
+			sum+=a;
+		}
+		}
+		return sum;
+	}
+	public int tong2(int a,int b) {
+		int sum=0;
+		do{sum+=a;
+		a++;}
+		while(a<=b);
+	}
+public static void main (String[]args) {
+	tongsole1 a=new tongsole1();
+}
+}

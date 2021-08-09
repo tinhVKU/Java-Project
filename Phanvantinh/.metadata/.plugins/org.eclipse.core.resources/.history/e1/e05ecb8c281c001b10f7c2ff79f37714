@@ -1,0 +1,35 @@
+
+public class tongsole1 {
+	public int tong1(int a,int b) {
+		int sum=0;
+		for(;a<=b;a++) {
+		if(a%2!=0) {
+			sum+=a;
+		}
+		}
+		return sum;
+	}
+	public int tong2(int a,int b) {
+		int sum=0;
+		do{if(a%2!=0) {
+			sum+=a;}
+		a++;}
+		while(a<=b);
+		return sum;
+	}
+	public int tong3(int a,int b) {
+		int sum=0;
+		while(a<=b) {
+			if(a%2!=0) {
+				sum+=a;
+			}
+		}
+		return sum;
+	}
+public static void main (String[]args) {
+	tongsole1 a=new tongsole1();
+	System.out.println("tong so le 1 den 100 la: "+a.tong1(1,100));
+	System.out.println("tong so le 1 den 100 la: "+a.tong2(1, 100));
+	System.out.println("tong so le 1 den 100 la: "+a.tong3(1, 100));
+}
+}

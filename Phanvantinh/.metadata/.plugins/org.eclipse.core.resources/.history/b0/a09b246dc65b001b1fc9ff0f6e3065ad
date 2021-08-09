@@ -1,0 +1,193 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+import java.util.Vector;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class danhsach extends JFrame {
+	private JScrollPane tableResult;
+	private JPanel contentPane;
+	private JTextField textField;
+	private JPanel panel;
+	JButton btnNewButton;
+	private JPanel panel_1;
+	private JPanel panel_2;
+	private JButton btnNewButton_1;
+	private JButton btnNewButton_2;
+	private JButton btnNewButton_3;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					danhsach frame = new danhsach();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public danhsach() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		setSize(800, 470);
+		setVisible(true);
+		
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		 panel = new JPanel();
+		 panel.setBackground(Color.WHITE);
+		panel.setBounds(1, 1, 783, 38);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(225, 11, 262, 27);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBackground(Color.WHITE);
+		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Truon\\OneDrive\\Hi\u0300nh a\u0309nh\\tim1.jpg"));
+		lblNewLabel.setBounds(177, 11, 46, 27);
+		panel.add(lblNewLabel);
+		
+		 panel_1 = new JPanel();
+		 panel_1.setBackground(Color.WHITE);
+		panel_1.setBounds(1, 50, 783, 316);
+		contentPane.add(panel_1);
+		Vector vData =null,vTitle=null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/sinhvien","root","");
+			Statement stm =conn.createStatement();
+			ResultSet rst =stm.executeQuery("select * from student");
+			ResultSetMetaData rstmeta =rst.getMetaData();
+			int num_column=rstmeta.getColumnCount();
+			 vTitle = new Vector(num_column);
+			for(int i=1; i<=num_column;i++) {
+				vTitle.add(rstmeta.getColumnLabel(i));
+				
+			}
+			vData =new Vector();
+			while (rst.next()) {
+				Vector row =new Vector();
+				for(int i=1;i<=num_column;i++) {
+					row.add(rst.getString(i));
+					
+				}
+				vData.add(row);
+			}
+			rst.close();
+			stm.close();
+			conn.close();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		panel_1.setLayout(new BorderLayout(0, 0));
+		
+		panel_2 = new JPanel();
+		panel_2.setBackground(Color.WHITE);
+		panel_2.setBounds(1, 377, 783, 43);
+		contentPane.add(panel_2);
+		panel_2.setLayout(null);
+		
+		btnNewButton_1 = new JButton("Quay l\u1EA1i");
+		btnNewButton_1.setBackground(Color.WHITE);
+		btnNewButton_1.setBounds(178, 11, 97, 28);
+		panel_2.add(btnNewButton_1);
+		
+		btnNewButton_2 = new JButton("Ch\u1EC9nh s\u1EEDa");
+		btnNewButton_2.setBackground(Color.WHITE);
+		btnNewButton_2.setBounds(340, 11, 105, 28);
+		panel_2.add(btnNewButton_2);
+		
+		btnNewButton_3 = new JButton("X\u00F3a");
+		btnNewButton_3.setBackground(Color.WHITE);
+		btnNewButton_3.setBounds(515, 11, 97, 28);
+		panel_2.add(btnNewButton_3);
+		tableResult = new JScrollPane(new JTable(vData,vTitle));
+		tableResult.setBounds(1, 40, 783, 351);
+//		contentPane.add(tableResult);
+		panel_1.setLayout(new BorderLayout());
+		panel_1.add(tableResult,"Center");
+		 btnNewButton = new JButton("T\u00ECm");
+		 btnNewButton.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 		
+		 		
+		 		Vector vData =null,vTitle=null;
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/sinhvien","root","");
+					Statement stm =conn.createStatement();
+					ResultSet rst =stm.executeQuery("SELECT * FROM `student` WHERE `Họ và tên` LIKE '%"+textField.getText()+"%'");
+					ResultSetMetaData rstmeta =rst.getMetaData();
+					int num_column=rstmeta.getColumnCount();
+					 vTitle = new Vector(num_column);
+					for(int i=1; i<=num_column;i++) {
+						vTitle.add(rstmeta.getColumnLabel(i));
+						
+					}
+					vData =new Vector();
+					while (rst.next()) {
+						Vector row =new Vector();
+						for(int i=1;i<=num_column;i++) {
+							row.add(rst.getString(i));	
+////							System.out.println(rst.getString(i));
+//							ResultSet r =stm.executeQuery("SELECT * FROM `student` ");
+//							ResultSetMetaData rstmeta =r.getMetaData();
+						}
+						vData.add(row);
+					}
+					rst.close();
+					stm.close();
+					conn.close();
+				}
+				catch(Exception e1){
+					System.out.println(e1.getMessage());
+				}
+				panel_1.remove(tableResult);
+				tableResult = new JScrollPane(new JTable(vData,vTitle));
+				tableResult.setBounds(1, 40, 783, 351);
+				panel_1.add(tableResult,BorderLayout.CENTER);
+		 	}
+		 });
+		 btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setBounds(486, 11, 65, 27);
+		panel.add(btnNewButton);
+	}
+}

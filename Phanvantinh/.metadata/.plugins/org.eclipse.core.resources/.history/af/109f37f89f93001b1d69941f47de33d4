@@ -1,0 +1,51 @@
+import java.io.DataInput;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import com.sun.jdi.Field;
+
+public class IOstream {
+	public static void main(String[] args) {
+		
+//		File file = new File("text1.txt");
+//		if(file.isFile()) {
+//			System.out.println("File "+file.getAbsolutePath());
+//			file.delete();
+//		}else {
+//			System.out.println("Not File");
+////			file.createNewFile();
+//		}
+		
+//		DataInputStream inputStream = new DataInputStream(System.in);
+//		System.out.println("Nhap N: ");
+////		String N = inputStream.readLine();
+//		int N = Integer.parseInt(inputStream.readLine());
+//		System.out.println(N);
+		
+		//DOC DU LIEU TU FILE
+		FileInputStream fileInputStream =null;
+		try {
+			fileInputStream = new FileInputStream("text.txt");//1 la class IOstream throws IOException 2 la dung try cacth
+			int read;
+			while((read = fileInputStream.read())!=-1) {
+				System.out.println((char)read);
+			}
+		} catch ( Exception e) {
+			
+			e.printStackTrace();
+		}
+		finally {
+			if(fileInputStream!=null) {
+				try {
+					fileInputStream.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+	}
+}

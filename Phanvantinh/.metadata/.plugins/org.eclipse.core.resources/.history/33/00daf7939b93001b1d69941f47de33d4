@@ -1,0 +1,16 @@
+import java.io.File;
+import java.io.IOException;
+
+import com.sun.jdi.Field;
+
+public class IOstream {
+	public static void main(String[] args) throws IOException{
+		File file = new File("text1.txt");
+		if(file.isFile()) {
+			System.out.println("File "+file.getAbsolutePath());
+		}else {
+			System.out.println("Not File");
+			file.createNewFile();
+		}
+	}
+}

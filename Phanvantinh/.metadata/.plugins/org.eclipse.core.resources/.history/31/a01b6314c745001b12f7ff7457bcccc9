@@ -1,0 +1,69 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.ArrayList;
+public class Quanli extends JFrame implements ActionListener{
+	JButton b1= new JButton("Save");
+	JButton b2=new JButton("Num");
+	JButton b3=new JButton("Cancel");
+	JLabel l1=new JLabel("User");
+	JLabel l2=new JLabel("Pass");
+	JLabel l4=new JLabel("Number");
+	JLabel l3=new JLabel("Right");
+	JTextField t1=new JTextField();
+	JTextField t2=new JTextField();
+	JTextField t3=new JTextField();
+	JComboBox c=new JComboBox();
+	ArrayList<staff> list =new ArrayList<staff>();
+	JPanel p1,p2;
+	public Quanli() {
+		Container con=this.getContentPane();
+		JPanel p1=new JPanel();
+		JPanel p2=new JPanel();
+		p1.setLayout(new GridLayout(4, 2));
+		p1.add(l1);
+		p1.add(t1);
+		p1.add(l2);
+		p1.add(t2);
+		p1.add(l3);
+		p1.add(c);
+		p1.add(l4);
+		p1.add(t3);
+		c.addItem("Admin");
+		c.addItem("Student");
+		c.addItem("Teacher");
+		p2.setLayout(new FlowLayout());
+		p2.add(b1);
+		p2.add(b2);
+		p2.add(b3);
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		b3.addActionListener(this);
+		con.add(p1);
+		con.add(p2,"South");
+		this.pack();
+		this.setVisible(true);
+		setSize(400, 500);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getActionCommand()=="Save") {
+			String user =t1.getText();
+			String pass =t2.getText();
+			String right=(String) c.getItemAt(c.getSelectedIndex());
+			staff tinh = new staff(user,pass,right);
+			list.add(tinh);
+		}
+		else if(e.getActionCommand()=="Num") {
+			t3.setText(String.valueOf(list.size()));
+		}
+		else 
+			dispose();
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new Quanli();
+	}
+
+}

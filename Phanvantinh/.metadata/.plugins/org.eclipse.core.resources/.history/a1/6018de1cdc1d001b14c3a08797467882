@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class mang1{
+public static Scanner s=new Scanner(System.in);
+public void tinh1() {
+	System.out.print("Cac phan tu cua mang la: ");
+
+	
+	int n=s.nextInt();
+	int[]a=new int[n];
+	for(int i=0;i<n;i++) {
+		a[i]=s.nextInt();}
+
+	for(int i=0;i<a.length;i++) {
+		System.out.print(a[i]+" ");}
+	
+	
+}
+
+	public static void main(String[]args) {
+		mang1 t =new mang1();
+
+		t.tinh1();
+	}
+}

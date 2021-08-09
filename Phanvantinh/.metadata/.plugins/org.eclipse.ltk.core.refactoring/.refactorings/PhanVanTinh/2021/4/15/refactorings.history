@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;PhanVanTinh/cmnd1-removebg-preview.png&apos; to &apos;cmnd.png&apos;" description="Rename resource &apos;cmnd1-removebg-preview.png&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="cmnd1-removebg-preview.png" name="cmnd.png" stamp="1617678699197" updateReferences="true"/>
+</session>
